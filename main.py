@@ -1,6 +1,6 @@
-from twitter_scraper_selenium import scrap_keyword
+from twitter_scraper_selenium import scrape_keyword
 #scrap 10 posts by searching keyword "india" from date 30th August till date 31st August
-cancer = scrap_keyword(keyword="smoking cancer chemotherapy", browser="chrome",
+cancer = scrape_keyword(keyword="smoking cancer chemotherapy", browser="chrome",
                       tweets_count=1,output_format="json" ,until="2023-08-31", since="2021-08-30")
 print(cancer)
 
