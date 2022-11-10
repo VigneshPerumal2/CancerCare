@@ -5,10 +5,10 @@ cancer = scrap_keyword(keyword="smoking cancer chemotherapy", browser="chrome",
 print(cancer)
 
 
-from twitter_scraper_selenium import scrape_profile
-
-microsoft = scrape_profile(twitter_username="AspRobin22",output_format="json",browser="firefox",tweets_count=10)
-print(microsoft)
+# from twitter_scraper_selenium import scrape_profile
+#
+# microsoft = scrape_profile(twitter_username="AspRobin22",output_format="json",browser="firefox",tweets_count=10)
+# print(microsoft)
 
 # import tweepy #Library required for Twitter API
 # import csv, re
