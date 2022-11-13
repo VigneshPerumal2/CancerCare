@@ -434,6 +434,7 @@ SELECT U.User_Name, U.Handle_Name
 FROM USER U, TWEETS T
 WHERE U.User_Id= T.User_Id
 AND T.Tweet_Id='1591132276909559808';
+
  <img width="360" alt="image" src="https://user-images.githubusercontent.com/34863107/201506200-59cd2526-7d44-481b-af06-99ed15d7f2b9.png">
 
 
