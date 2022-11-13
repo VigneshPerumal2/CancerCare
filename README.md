@@ -24,20 +24,20 @@ Explanation on some of the design decisions:
 
 •	The User can tweet as many tweets as possible about Cancer, through which the treatment and the cancer type can be identified. This information is helpful as it gives us insights into the exact condition or situation of the User.
 
-#Conceptual Diagram 
+# Conceptual Diagram 
 
 ![image](https://user-images.githubusercontent.com/34863107/201505851-2fb48c5e-7df6-449e-8868-0953eb708829.png)
 
-#UML Diagram
+# UML Diagram
 
 ![image](https://user-images.githubusercontent.com/34863107/201505875-25483ff9-1fd1-4dab-bc9c-67374f7b4546.png)
 
 
-#ERD Diagram
+# ERD Diagram
 
 ![image](https://user-images.githubusercontent.com/34863107/201505890-7e78f097-2b87-4736-900f-964647ceb9a1.png)
 
-#Conceptual Diagram Queries:
+# Conceptual Diagram Queries:
 
 Create table for USER –
 
@@ -460,6 +460,24 @@ FROM    Tweets
 WHERE   TWEETS.Posted_At >= datetime('now','-1 day') 
 AND User_id = 1 ;
 <img width="360" alt="image" src="https://user-images.githubusercontent.com/34863107/201506229-1821f236-d218-41d3-828a-ba62654e6481.png">
+
+5. When did this user join Twitter?
+
+SELECT Joined_At FROM USER WHERE User_Id=1;
+
+6. What keywords/ hashtags are popular?
+
+SELECT hashtag_text, COUNT (hashtag_text)FROM hashtag 
+GROUP BY hashtag_text 
+ORDER BY COUNT (hashtag_text)DESC;
+
+7. What tweets are popular?
+
+SELECT TWEEET_TEXT,RETWEETS, LIKES
+FROM TWEETS
+ORDER BY LIKES DESC;
+
+
 
 
 
