@@ -161,7 +161,18 @@ print("Patient Table created successfully");
 
 conn.close()
 ```
-
+| Patient\_ID | Sample\_ID | Age | Race | Sex | Number\_of\_Samples\_Per\_Patient | Smoking\_Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| P-0000004 | P-0000004-N01 | 39.7399025 | White | Female | 1 | Never smoker |
+| P-0000015 | P-0000015-N01 | 44.44079208 | White | Female | 1 | Never smoker |
+| P-0000023 | P-0000023-N01 | 61.31964493 | White | Male | 1 | Never smoker |
+| P-0000024 | P-0000024-N01 | 61.34428406 | White | Female | 1 | Former Smoker |
+| P-0000025 | P-0000025-N01 | 72.67350769 | White | Female | 1 | Former Smoker |
+| P-0000026 | P-0000026-N01 | 71.70978546 | Asian | Female | 1 | Former Smoker |
+| P-0000027 | P-0000027-N01 | 81.00479126 | White | Female | 1 | Never smoker |
+| P-0000034 | P-0000034-N01 | 76.88432312 | White | Male | 1 | Former Smoker |
+| P-0000037 | P-0000037-N01 | 64.35317993 | Asian | Male | 1 | Never smoker |
+| P-0000039 | P-0000039-N01 | 69.01300812 | White | Male | 1 | Former Smoker |
 
 ```
 #CANCER_TYPE TABLE
@@ -181,7 +192,18 @@ print("Cancer_Type Table created successfully");
 
 conn.close()
 ```
-
+| Cancer\_Type\_ID | Cancer\_Type | Patient\_ID | Cancer\_Type\_Detailed | All\_therapy\_at\_MSKCC |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Breast Cancer | P-0000004 | Invasive Breast Carcinoma | No |
+| 2 | Breast Cancer | P-0000015 | Invasive Breast Carcinoma | No |
+| 3 | Mesothelioma | P-0000023 | Peritoneal Mesothelioma | No |
+| 4 | Endometrial Cancer | P-0000024 | Other Uterine Tumor | No |
+| 5 | Endometrial Cancer | P-0000025 | Other Uterine Tumor | Yes |
+| 6 | Endometrial Cancer | P-0000026 | Other Uterine Tumor | No |
+| 7 | Mesothelioma | P-0000027 | Peritoneal Mesothelioma | Yes |
+| 8 | Bladder Cancer | P-0000034 | Bladder Adenocarcinoma | No |
+| 9 | Hepatobiliary Cancer | P-0000037 | Hepatocellular Carcinoma | No |
+| 10 | Mesothelioma | P-0000039 | Peritoneal Mesothelioma | Yes |
 
 ```
 #DIAGNOSIS TABLE
@@ -200,7 +222,18 @@ print("Diagnosis Table created successfully");
 
 conn.close()
 ```
-
+| Diagnosis\_ID | Patient\_ID | Time\_From\_Diagnosis | Time\_to\_Blood\_Draw\_from\_Treatment |
+| :--- | :--- | :--- | :--- |
+| 1 | P-0000004 | 991 | 609 |
+| 2 | P-0000015 | 2558 | 5 |
+| 3 | P-0000023 | 245 | 166 |
+| 4 | P-0000024 | 6313 | 91 |
+| 5 | P-0000025 | 1161 | 1097 |
+| 6 | P-0000026 | 1624 | 1197 |
+| 7 | P-0000027 | 549 | 267 |
+| 8 | P-0000034 | 488 | 692 |
+| 9 | P-0000037 | 2365 | 692 |
+| 10 | P-0000039 | 904 | 785 |
 
 ```
 #ANTIBIOTICS TABLE
@@ -257,7 +290,18 @@ print("Radiotherapy Table created successfully");
 
 conn.close()
 ```
-
+| Radiation\_Therapy\_ID | Patient\_ID | Immunotherapy\_Treatment | Radiation\_Therapy | Radiotherapy\_Treatment | Cumulative\_Exposure\_to\_Immunotherapy |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | P-0000004 | No | Yes | No | No treatment |
+| 2 | P-0000015 | No | No | No | No treatment |
+| 3 | P-0000023 | No | No | No | No treatment |
+| 4 | P-0000024 | No | No | No | No treatment |
+| 5 | P-0000025 | No | No | No | No treatment |
+| 6 | P-0000026 | No | No | No | No treatment |
+| 7 | P-0000027 | No | No | No | No treatment |
+| 8 | P-0000034 | Yes | No | No | 2nd tertile |
+| 9 | P-0000037 | Yes | No | No | 2nd tertile |
+| 10 | P-0000039 | Yes | Yes | No | 3rd tertile |
 
 ```
 #CHEMOTHERAPY TABLE
@@ -282,7 +326,18 @@ print("Chemotherapy Table created successfully");
 
 conn.close()
 ```
-
+| Chemotherapy\_Treatment\_ID | Chemotherapy\_Treatment | Patient\_ID | Cytotoxic\_Chemotherapy\_Treatment | Cumulative\_Exposure\_to\_Other\_Cytotoxic\_Therapy | Oxaliplatin\_Treatment | Other\_Cytotoxic\_Treatment | Cumulative\_Exposure\_to\_Oxaliplatin | Cytotoxic\_Chemotherapy\_Treatment\_Tertile |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | Yes | P-0000004 | Yes | No treatment | No | No | No treatment | 1st tertile |
+| 2 | Yes | P-0000015 | Yes | No treatment | No | No | No treatment | 1st tertile |
+| 3 | Yes | P-0000023 | Yes | No treatment | No | No | No treatment | 2nd tertile |
+| 4 | Yes | P-0000024 | Yes | No treatment | No | No | No treatment | 1st tertile |
+| 5 | Yes | P-0000025 | Yes | No treatment | No | No | No treatment | 3rd tertile |
+| 6 | Yes | P-0000026 | Yes | No treatment | No | No | No treatment | 2nd tertile |
+| 7 | Yes | P-0000027 | Yes | No treatment | No | No | No treatment | 1st tertile |
+| 8 | Yes | P-0000034 | Yes | No treatment | No | No | No treatment | 2nd tertile |
+| 9 | Yes | P-0000037 | Yes | No treatment | No | No | No treatment | 2nd tertile |
+| 10 | Yes | P-0000039 | Yes | No treatment | No | No | No treatment | 3rd tertile |
 
 ```
 #ANTIMETABOLITE TABLE
@@ -308,7 +363,18 @@ print("Antimetabolite Table created successfully");
 
 conn.close()
 ```
-
+| Antimetabolite\_Treatment\_ID | Antimetobolite\_Treatment | Patient\_ID | Cumulative\_Exposure\_to\_Antimetabolite | Carboplatin\_Treatment | Cumulative\_Exposure\_to\_Carboplatin | Cisplatin\_Treatment | Cumulative\_Exposure\_to\_Cisplatin | Platinum\_Treatment | Cumulative\_Exposure\_to\_Platinum |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | Yes | P-0000004 | 3rd tertile | Yes | 2nd tertile | Yes | 3rd tertile | Yes | 3rd tertile |
+| 2 | Yes | P-0000015 | 3rd tertile | Yes | 2nd tertile | Yes | 3rd tertile | Yes | 3rd tertile |
+| 3 | Yes | P-0000023 | 2nd tertile | Yes | 2nd tertile | Yes | 3rd tertile | Yes | 3rd tertile |
+| 4 | Yes | P-0000024 | 2nd tertile | Yes | 2nd tertile | Yes | 3rd tertile | Yes | 2nd tertile |
+| 5 | No | P-0000025 | No treatment | Yes | 3rd tertile | No | No treatment | Yes | 3rd tertile |
+| 6 | No | P-0000026 | No treatment | Yes | 3rd tertile | No | No treatment | Yes | 3rd tertile |
+| 7 | Yes | P-0000027 | 2nd tertile | Yes | 1st tertile | No | No treatment | Yes | 1st tertile |
+| 8 | Yes | P-0000034 | 3rd tertile | Yes | 1st tertile | Yes | 2nd tertile | Yes | 2nd tertile |
+| 9 | Yes | P-0000037 | 3rd tertile | Yes | 1st tertile | Yes | 2nd tertile | Yes | 2nd tertile |
+| 10 | Yes | P-0000039 | 3rd tertile | Yes | 2nd tertile | Yes | 2nd tertile | Yes | 3rd tertile |
 
 ```
 #MICROTUBULE TABLE
@@ -332,7 +398,18 @@ print("Microtubule Table created successfully");
 
 conn.close()
 ```
-
+| Microtubule\_ID | EQD\_Tertiles | Patient\_ID | Oncotree\_Code | Nucleoside\_Analogue\_Treatment | Cumulative\_Exposure\_to\_Microtubule\_Damaging\_Agent | Mutation\_Count | Folic\_Acid\_Analog\_Treatment |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 1st tertile | P-0000004 | BRCA | Yes | No treatment | 2 | Yes |
+| 2 | No radiation | P-0000015 | BRCA | Yes | No treatment | 2 | Yes |
+| 3 | No radiation | P-0000023 | PEMESO | Yes | No treatment | 2 | Yes |
+| 4 | No radiation | P-0000024 | OUTT | Yes | No treatment | 2 | Yes |
+| 5 | No radiation | P-0000025 | OUTT | No | No treatment | 2 | No |
+| 6 | No radiation | P-0000026 | OUTT | No | No treatment | 2 | No |
+| 7 | No radiation | P-0000027 | PEMESO | No | No treatment | 2 | Yes |
+| 8 | No radiation | P-0000034 | BLAD | Yes | No treatment | 1 | Yes |
+| 9 | No radiation | P-0000037 | HCC | Yes | No treatment | 1 | Yes |
+| 10 | 1st tertile | P-0000039 | PEMESO | No | No treatment | 1 | Yes |
 
 ```
 #TOPOISOMERASE TABLE
@@ -353,6 +430,18 @@ print("Topoisomerase Table created successfully");
 
 conn.close()
 ```
+| Topoisomerase\_Treatment\_ID | Cumulative\_Exposure\_to\_Topoisomerase\_I\_Inhibitor | Patient\_ID | Cumulative\_Exposure\_to\_Topoisomerase\_II\_Inhibitor | Topoisomerase\_I\_Inhibitor\_Treatment | Topoisomerase\_II\_Inhibitor\_Treatment |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | No treatment | P-0000004 | No treatment | No | No |
+| 2 | No treatment | P-0000015 | No treatment | No | No |
+| 3 | No treatment | P-0000023 | No treatment | No | No |
+| 4 | No treatment | P-0000024 | No treatment | No | No |
+| 5 | No treatment | P-0000025 | No treatment | No | No |
+| 6 | No treatment | P-0000026 | No treatment | No | No |
+| 7 | No treatment | P-0000027 | No treatment | No | No |
+| 8 | No treatment | P-0000034 | No treatment | No | No |
+| 9 | No treatment | P-0000037 | No treatment | No | No |
+| 10 | No treatment | P-0000039 | No treatment | No | No |
 
      
 **INSERTING TABLES**
