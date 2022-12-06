@@ -225,7 +225,18 @@ print("Antibiotics Table created successfully");
 
 conn.close()
 ```
-
+| Alkylating\_Agent\_Treatment\_ID | Alkylating\_Agent\_Treatment | Patient\_ID | Cumulative\_Exposure\_to\_Alkylatin\_Agent | Anthracycline\_Treatment | Cumulative\_Exposure\_to\_Anthracycline | Targeted\_Therapy\_Treatment | Cumulative\_Exposure\_to\_Targeted\_Therapy | Taxane\_Treatment | Cumulative\_Exposure\_to\_Taxane |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | Yes | P-0000004 | 1st tertile | No | No treatment | Yes | 3rd tertile | Yes | 2nd tertile |
+| 2 | Yes | P-0000015 | 1st tertile | No | No treatment | Yes | 3rd tertile | Yes | 2nd tertile |
+| 3 | Yes | P-0000023 | 1st tertile | No | No treatment | Yes | 3rd tertile | Yes | 2nd tertile |
+| 4 | Yes | P-0000024 | 1st tertile | No | No treatment | Yes | 3rd tertile | Yes | 2nd tertile |
+| 5 | No | P-0000025 | No treatment | No | No treatment | Yes | 2nd tertile | Yes | 3rd tertile |
+| 6 | No | P-0000026 | No treatment | No | No treatment | Yes | 2nd tertile | Yes | 3rd tertile |
+| 7 | No | P-0000027 | No treatment | No | No treatment | No | No treatment | No | No treatment |
+| 8 | No | P-0000034 | No treatment | No | No treatment | No | No treatment | No | No treatment |
+| 9 | No | P-0000037 | No treatment | No | No treatment | No | No treatment | No | No treatment |
+| 10 | No | P-0000039 | No treatment | No | No treatment | No | No treatment | No | No treatment |
 
 ```
 #RADIOTHERAPY TABLE
