@@ -5,7 +5,7 @@
   Vignesh Perumal Samy (perumalsamy.v)
   Sunayana Shivanagi   (shivanagi.s)**
 
-**Repository Link : https://github.com/VigneshPerumal2/CancerCare.git**
+**Cancer Therapy and Clonal Hematopoiesis**
 
 **Data Source Link : https://www.cbioportal.org/study/clinicalData?id=msk_ch_2020**
 
@@ -521,6 +521,8 @@ print("Data inserted :)");
 
 ```
 #Query 1 - Number of Mutation in Cancer Patients
+#Description:
+The number of mutations in cancer patients can vary greatly depending on the type of cancer and the individual patient. Some cancers, such as lung cancer, can have relatively few mutations, while others, such as certain types of leukemia, can have many mutations. In general, cancer is caused by a combination of genetic mutations that occur over time, which can lead to the uncontrolled growth of cells that make up the cancer. These mutations can be inherited, or they can develop as a result of environmental factors such as exposure to certain chemicals or radiation. It is important to note that not all mutations will lead to cancer, and some people may carry mutations that do not cause any health problems.
 
 import sqlite3
 import pandas as pd
@@ -565,6 +567,8 @@ plt.show()
 
 ```
 Query 2 - Time to draw blood from the patient
+#Description: 
+The time it takes to draw blood from a patient can vary depending on a number of factors, including the skill of the person drawing the blood, the size and location of the veins, and the equipment being used. In general, the process of drawing blood is quick and relatively painless, and most people are able to have blood drawn in just a few minutes. The specific amount of time it takes to draw blood from a patient will depend on the individual situation.
 
 import sqlite3
 import pandas as pd
@@ -607,6 +611,8 @@ plt.show()
 
 ```
 Query 3 - Time_from_Diagnosis
+#Description: 
+The time it takes to diagnose a patient can vary depending on the type of condition being diagnosed and the methods used to make a diagnosis. Some conditions, such as the common cold, can be diagnosed quickly based on the symptoms a patient is experiencing. Others, such as cancer, may require more extensive testing and analysis, which can take longer to complete. In general, the process of making a diagnosis can take anywhere from a few minutes to several weeks or more, depending on the individual situation. It is important for patients to work closely with their healthcare provider to ensure that they receive an accurate and timely diagnosis.
 
 
 import sqlite3
@@ -648,6 +654,8 @@ plt.show()
 
 ```
 Query 4 - Smoking Status
+#Description:
+Smoking is a known risk factor for many types of cancer, including lung, throat, mouth, and bladder cancer. This is because the chemicals found in tobacco smoke can damage the DNA in cells, leading to mutations that can cause cancer to develop. In addition to causing cancer, smoking is also linked to a number of other serious health problems, such as heart disease, stroke, and lung diseases like emphysema and chronic bronchitis. Quitting smoking can reduce the risk of developing these conditions and can improve overall health.
 
 
 import sqlite3
@@ -688,6 +696,8 @@ plt.show()
 
 ```
 Query 5 - Treatment Status
+#Description: The treatment status of a cancer patient refers to the current stage of their treatment plan and the specific treatments they are receiving. Treatment for cancer can vary depending on the type and stage of the cancer, as well as the overall health and preferences of the patient. Some common types of cancer treatments include chemotherapy, radiation therapy, surgery, and targeted drug therapies. The treatment plan for a cancer patient may involve one or more of these treatments, and the treatment status can change over time as the patient responds to treatment and their condition changes. It is important for patients to work closely with their healthcare provider to develop an effective treatment plan that meets their needs.
+
 
 
 import sqlite3
@@ -729,7 +739,8 @@ plt.show()
 
 ```
 Query 6 - Cisplatin Treatment
-
+#Description:
+Cisplatin is a chemotherapy drug that is used to treat several types of cancer, including testicular cancer, ovarian cancer, and lung cancer. It works by damaging the DNA in cancer cells, which can prevent them from growing and dividing. Cisplatin is typically administered intravenously (through a vein) and is often given in combination with other chemotherapy drugs. Like other chemotherapy drugs, cisplatin can cause side effects, such as nausea, vomiting, and hair loss. It is important for patients to discuss the potential benefits and risks of cisplatin treatment with their healthcare provider.
 
 import sqlite3
 import pandas as pd
@@ -770,7 +781,8 @@ plt.show()
 
 ```
 Query 7 - Antimetobolite_Treatment
-
+#Description:
+Antimetabolite treatment is a type of chemotherapy that is used to treat cancer. Antimetabolites are drugs that work by interfering with the way cells use certain molecules, such as DNA and RNA, to grow and divide. This can prevent cancer cells from growing and multiplying, which can slow down the progression of the cancer. There are several different types of antimetabolite drugs, including 5-fluorouracil, capecitabine, and gemcitabine. These drugs are often used in combination with other chemotherapy drugs and can cause side effects, such as nausea, vomiting, and low blood cell counts. It is important for patients to discuss the potential benefits and risks of antimetabolite treatment with their healthcare provider.
 
 import sqlite3
 import pandas as pd
@@ -812,7 +824,8 @@ plt.show()
 
 ```
 Query 8 - Anthracycline_Treatment
-
+#Description:
+Anthracycline treatment is a type of chemotherapy that is used to treat cancer. Anthracyclines are drugs that work by interfering with the way cancer cells produce energy, which can prevent them from growing and dividing. These drugs are often used in combination with other chemotherapy drugs and can be effective in treating a variety of different types of cancer, including breast cancer, leukemia, and lymphoma. Common side effects of anthracycline treatment include nausea, vomiting, hair loss, and an increased risk of infection. It is important for patients to discuss the potential benefits and risks of anthracycline treatment with their healthcare provider.
 
 import sqlite3
 import pandas as pd
@@ -851,6 +864,8 @@ plt.show()
 
 ```
 Query 9 - Alkylating_Agent_Treatment
+#Description:
+Alkylating agent treatment is a type of chemotherapy that is used to treat cancer. Alkylating agents are drugs that work by damaging the DNA in cancer cells, which can prevent them from growing and dividing. These drugs are often used in combination with other chemotherapy drugs and can be effective in treating a variety of different types of cancer, including leukemia, lymphoma, and cancers of the breast, lung, and ovaries. Common side effects of alkylating agent treatment include nausea, vomiting, hair loss, and an increased risk of infection. It is important for patients to discuss the potential benefits and risks of alkylating agent treatment with their healthcare provider.
 
 import sqlite3
 import pandas as pd
@@ -894,6 +909,10 @@ plt.show()
 
 ```
 # Query 10 - EQD_Tertiles
+#Description:
+EQD tertiles, also known as equivalent dose tertiles, is a way of measuring the amount of radiation that a person has received during cancer treatment. This measurement is used to compare the doses of different types of radiation and to determine the potential risks and benefits of different treatment options. EQD tertiles are calculated by dividing the total dose of radiation that a person receives into three equal groups, or tertiles. The first tertile represents the lowest doses of radiation, the second tertile represents moderate doses, and the third tertile represents the highest doses. This measurement can be helpful in determining the most appropriate treatment plan for a particular patient. It is important to note that the specific values of the EQD tertiles can vary depending on the type of cancer and the specific treatment being used.
+
+
 import sqlite3
 import pandas as pd
 con = sqlite3.connect('cancer.db')
@@ -937,8 +956,9 @@ plt.show()
 
 
 ```
-Query 11 - Race
-
+#Query 11 - Race
+#Description: 
+Race is a social construct that is used to categorize people based on physical characteristics such as skin color, eye shape, and facial features. Race is not a biological concept and does not have a scientific basis. While there is no inherent link between race and cancer, certain racial and ethnic groups may have a higher risk of developing certain types of cancer due to a combination of genetic, environmental, and socioeconomic factors. For example, African Americans have a higher risk of developing prostate cancer and lung cancer than other racial and ethnic groups. It is important for healthcare providers to consider the potential impact of race on cancer risk and treatment when caring for patients.
 
 import sqlite3
 import pandas as pd
@@ -977,8 +997,9 @@ plt.show()
 
 
 ```
-Query 12 - All_Therapy_At_MSKCC
-
+#Query 12 - All_Therapy_At_MSKCC
+#Description:
+All therapy at MSKCC, also known as all therapy at Memorial Sloan Kettering Cancer Center, is a term that refers to the comprehensive range of cancer treatments offered at Memorial Sloan Kettering Cancer Center (MSKCC). MSKCC is a leading cancer center in the United States, known for its innovative and personalized approach to cancer care. The all therapy at MSKCC model encompasses a wide range of treatments, including surgery, chemotherapy, radiation therapy, and targeted drug therapies. This approach allows patients to receive all of their cancer care, from diagnosis to treatment and follow-up care, in one location. This can be convenient for patients and can help ensure that they receive coordinated and high-quality care.
 
 import sqlite3
 import pandas as pd
@@ -1018,8 +1039,9 @@ plt.show()
 
 
 ```
-Query 13 - Platinum Treatment
-
+#Query 13 - Platinum Treatment
+#Description:
+Platinum treatment is a type of chemotherapy that is used to treat cancer. Platinum drugs, such as cisplatin and carboplatin, work by damaging the DNA in cancer cells, which can prevent them from growing and dividing. These drugs are often used in combination with other chemotherapy drugs and can be effective in treating a variety of different types of cancer, including lung cancer, ovarian cancer, and testicular cancer. Common side effects of platinum treatment include nausea, vomiting, hair loss, and an increased risk of infection. It is important for patients to discuss the potential benefits and risks of platinum treatment with their healthcare provider.
 
 import sqlite3
 import pandas as pd
@@ -1059,8 +1081,9 @@ plt.show()
 
 
 ```
-Query 14 - Radiotherapy Treatment
-
+#Query 14 - Radiotherapy Treatment
+#Description:
+Radiotherapy, also known as radiation therapy, is a type of cancer treatment that uses high-energy rays, such as X-rays and protons, to kill cancer cells. Radiotherapy works by damaging the DNA in cancer cells, which can prevent them from growing and dividing. It is often used in combination with other cancer treatments, such as chemotherapy and surgery, to kill cancer cells and shrink tumors. Radiotherapy can be an effective treatment for many types of cancer, including breast cancer, prostate cancer, and lung cancer. Common side effects of radiotherapy include fatigue, skin irritation, and an increased risk of infection. It is important for patients to discuss the potential benefits and risks of radiotherapy with their healthcare provider.
 
 import sqlite3
 import pandas as pd
@@ -1100,8 +1123,9 @@ plt.show()
 
 
 ```
-Query 15 - Chemotherapy Treatment
-
+#Query 15 - Chemotherapy Treatment
+#Description:
+Chemotherapy is a type of cancer treatment that uses drugs to kill cancer cells. These drugs work by interfering with the way cancer cells grow and divide, which can prevent them from multiplying and spreading to other parts of the body. Chemotherapy is often used in combination with other cancer treatments, such as surgery and radiotherapy, to kill cancer cells and shrink tumors. It can be an effective treatment for many types of cancer, including breast cancer, lung cancer, and leukemia. Common side effects of chemotherapy include nausea, vomiting, hair loss, and an increased risk of infection. It is important for patients to discuss the potential benefits and risks of chemotherapy with their healthcare provider.
 
 import sqlite3
 import pandas as pd
