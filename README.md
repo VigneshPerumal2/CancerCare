@@ -631,8 +631,10 @@ import pandas as pd
 
 
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS No_Of_Mutations;''')
 q1 = (
-'''SELECT  P.Patient_ID,P.Sample_ID,M.Mutation_Count
+con.execute('''CREATE VIEW No_Of_Mutations AS
+SELECT  P.Patient_ID,P.Sample_ID,M.Mutation_Count
 FROM PATIENT P
 LEFT JOIN MICROTUBULE M
     ON P.Patient_ID = M.Patient_ID
@@ -640,12 +642,13 @@ UNION
 SELECT  P.Patient_ID,P.Sample_ID,M.Mutation_Count
 FROM MICROTUBULE M
 LEFT JOIN PATIENT P
-    ON P.Patient_ID = M.Patient_ID;'''
-      )
+    ON P.Patient_ID = M.Patient_ID;'''))
+
+q1 = (con.execute(''' SELECT * FROM No_Of_Mutations;'''))
 
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
+r1 = pd.read_sql(''' SELECT * FROM No_Of_Mutations;''', con)
 r1.head(1)
 print(r1)
 
@@ -676,8 +679,10 @@ import pandas as pd
 
 
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Time_to_draw_blood;''')
 q1 = (
-'''SELECT  P.Patient_ID,P.Sample_ID,D.Time_to_Blood_Draw_from_Treatment
+con.execute('''CREATE VIEW Time_to_draw_blood AS
+SELECT  P.Patient_ID,P.Sample_ID,D.Time_to_Blood_Draw_from_Treatment
 FROM PATIENT P
 LEFT JOIN DIAGNOSIS D
     ON P.Patient_ID = D.Patient_ID
@@ -685,12 +690,13 @@ UNION
 SELECT  P.Patient_ID,P.Sample_ID,D.Time_to_Blood_Draw_from_Treatment
 FROM DIAGNOSIS D
 LEFT JOIN PATIENT P
-    ON P.Patient_ID = D.Patient_ID;'''
-      )
+    ON P.Patient_ID = D.Patient_ID;'''))
+
+q1 = (con.execute(''' SELECT * FROM Time_to_draw_blood;'''))
 
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
+r1 = pd.read_sql(''' SELECT * FROM Time_to_draw_blood;''', con)
 r1.head(1)
 print(r1)
 
@@ -718,8 +724,10 @@ import sqlite3
 import pandas as pd
 
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Time_from_Diagnosis;''')
 q1 = (
-'''SELECT  P.Patient_ID,P.Sample_ID,D.Time_from_Diagnosis
+con.execute('''CREATE VIEW Time_from_Diagnosis AS
+SELECT  P.Patient_ID,P.Sample_ID,D.Time_from_Diagnosis
 FROM PATIENT P
 LEFT JOIN DIAGNOSIS D
     ON P.Patient_ID = D.Patient_ID
@@ -727,11 +735,14 @@ UNION
 SELECT  P.Patient_ID,P.Sample_ID,D.Time_from_Diagnosis
 FROM DIAGNOSIS D
 LEFT JOIN PATIENT P
-    ON P.Patient_ID = D.Patient_ID;'''
-      )
+    ON P.Patient_ID = D.Patient_ID;'''))
+
+
+q1 = (con.execute(''' SELECT * FROM Time_from_Diagnosis;'''))
+
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
+r1 = pd.read_sql(''' SELECT * FROM Time_from_Diagnosis;''', con)
 r1.head(1)
 print(r1)
 
@@ -756,19 +767,25 @@ Smoking is a known risk factor for many types of cancer, including lung, throat,
 ```
 import sqlite3
 import pandas as pd
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Smoking_Status;''')
 q1 = (
-'''SELECT  P1.Smoking_Status,COUNT(P1.Smoking_Status)
+con.execute('''CREATE VIEW Smoking_Status AS
+SELECT  P1.Smoking_Status,COUNT(P1.Smoking_Status)
 FROM PATIENT P1
 LEFT JOIN PATIENT p2
     ON P1.Patient_ID = P2.Patient_ID
 GROUP BY P1.Smoking_Status
-ORDER BY P1.Smoking_Status;'''
-      )
+ORDER BY P1.Smoking_Status;'''))
+
+
+q1 = (con.execute(''' SELECT * FROM Time_from_Diagnosis;'''))
+
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
-r1.head(5)
+r1 = pd.read_sql(''' SELECT * FROM Time_from_Diagnosis;''', con)
+r1.head(1)
 print(r1)
 
 # Import libraries
@@ -796,20 +813,25 @@ The treatment status of a cancer patient refers to the current stage of their tr
 ```
 import sqlite3
 import pandas as pd
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Treatment_Status;''')
 q1 = (
-'''SELECT  D.Carboplatin_Treatment,COUNT(D.Carboplatin_Treatment)
+con.execute('''CREATE VIEW Treatment_Status AS
+SELECT  D.Carboplatin_Treatment,COUNT(D.Carboplatin_Treatment)
 FROM ANTIMETABOLITE D
 LEFT JOIN PATIENT P
     ON P.Patient_ID = D.Patient_ID
 GROUP BY D.Carboplatin_Treatment
-;
-'''
-      )
+;'''))
+
+
+q1 = (con.execute(''' SELECT * FROM Treatment_Status;'''))
+
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
-r1.head(5)
+r1 = pd.read_sql(''' SELECT * FROM Treatment_Status;''', con)
+r1.head(1)
 print(r1)
 
 # Import libraries
@@ -836,20 +858,25 @@ Cisplatin is a chemotherapy drug that is used to treat several types of cancer, 
 ```
 import sqlite3
 import pandas as pd
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Cisplatin_Treatment;''')
 q1 = (
-'''SELECT  D.Cisplatin_Treatment,COUNT(D.Cisplatin_Treatment)
+con.execute('''CREATE VIEW Cisplatin_Treatment AS
+SELECT  D.Cisplatin_Treatment,COUNT(D.Cisplatin_Treatment)
 FROM ANTIMETABOLITE D
 LEFT JOIN PATIENT P
     ON P.Patient_ID = D.Patient_ID
 GROUP BY D.Cisplatin_Treatment
-;
-'''
-      )
+;'''))
+
+
+q1 = (con.execute(''' SELECT * FROM Cisplatin_Treatment;'''))
+
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
-r1.head(5)
+r1 = pd.read_sql(''' SELECT * FROM Cisplatin_Treatment;''', con)
+r1.head(1)
 print(r1)
 
 # Import libraries
@@ -876,21 +903,27 @@ Antimetabolite treatment is a type of chemotherapy that is used to treat cancer.
 ```
 import sqlite3
 import pandas as pd
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Antimetobolite_Treatment;''')
+
 q1 = (
-'''SELECT  D.Antimetobolite_Treatment,COUNT(D.Antimetobolite_Treatment)
+con.execute('''CREATE VIEW Antimetobolite_Treatment AS
+SELECT  D.Antimetobolite_Treatment,COUNT(D.Antimetobolite_Treatment)
 FROM ANTIMETABOLITE D
 LEFT JOIN PATIENT P
     ON P.Patient_ID = D.Patient_ID
 GROUP BY D.Antimetobolite_Treatment
 ;
-'''
-      )
+''' ))
+
+q1 = (con.execute(''' SELECT * FROM Antimetobolite_Treatment;'''))
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
+r1 = pd.read_sql(''' SELECT * FROM Antimetobolite_Treatment;''', con)
 r1.head(5)
 print(r1)
+
 
 # Import libraries
 from matplotlib import pyplot as plt
@@ -917,18 +950,25 @@ Anthracycline treatment is a type of chemotherapy that is used to treat cancer. 
 ```
 import sqlite3
 import pandas as pd
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Anthracycline_Treatment;''')
 q1 = (
-''' SELECT D.Anthracycline_Treatment,COUNT(D.Anthracycline_Treatment)
+con.execute('''CREATE VIEW Anthracycline_Treatment AS
+ SELECT D.Anthracycline_Treatment,COUNT(D.Anthracycline_Treatment)
  FROM ANTIBIOTICS D
  LEFT JOIN PATIENT P
  ON P.Patient_ID = D.Patient_ID
 GROUP BY D.Anthracycline_Treatment
 ;
-'''
- )
+'''))
+
+
+q1 = (con.execute(''' SELECT * FROM Anthracycline_Treatment;'''))
+
+
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
+r1 = pd.read_sql('''SELECT * FROM Anthracycline_Treatment;''', con)
 r1.head(5)
 print(r1)
 
@@ -955,21 +995,26 @@ Alkylating agent treatment is a type of chemotherapy that is used to treat cance
 ```
 import sqlite3
 import pandas as pd
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Alkylating_Agent_Treatment;''')
 q1 = (
-'''SELECT  D.Alkylating_Agent_Treatment,COUNT(D.Alkylating_Agent_Treatment)
+con.execute('''CREATE VIEW Alkylating_Agent_Treatment AS
+SELECT  D.Alkylating_Agent_Treatment,COUNT(D.Alkylating_Agent_Treatment)
 FROM ANTIBIOTICS D
 LEFT JOIN PATIENT P
     ON P.Patient_ID = D.Patient_ID
 GROUP BY D.Alkylating_Agent_Treatment
 ;
-'''
-      )
+'''))
+
+q1 = (con.execute(''' SELECT * FROM Alkylating_Agent_Treatment;'''))
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
+r1 = pd.read_sql(''' SELECT * FROM Alkylating_Agent_Treatment;''', con)
 r1.head(5)
 print(r1)
+
 
 # Import libraries
 from matplotlib import pyplot as plt
@@ -998,23 +1043,25 @@ EQD tertiles, also known as equivalent dose tertiles, is a way of measuring the 
 ```
 import sqlite3
 import pandas as pd
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS EQD_Tertiles;''')
 q1 = (
-'''SELECT  D.EQD_Tertiles,COUNT(D.EQD_Tertiles)
+con.execute('''CREATE VIEW EQD_Tertiles AS
+SELECT  D.EQD_Tertiles,COUNT(D.EQD_Tertiles)
 FROM MICROTUBULE D
 LEFT JOIN PATIENT P
     ON P.Patient_ID = D.Patient_ID
 GROUP BY D.EQD_Tertiles
 ;
-'''
-      )
+''' ))
 
+q1 = (con.execute(''' SELECT * FROM EQD_Tertiles;'''))
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
+r1 = pd.read_sql('''  SELECT * FROM EQD_Tertiles;''', con)
 r1.head(5)
 print(r1)
-
 
 # Import libraries
 from matplotlib import pyplot as plt
@@ -1045,19 +1092,25 @@ Race is a social construct that is used to categorize people based on physical c
 
 import sqlite3
 import pandas as pd
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Race;''')
 q1 = (
-'''SELECT  P1.Race,COUNT(P1.Race)
+con.execute('''CREATE VIEW Race AS
+SELECT  P1.Race,COUNT(P1.Race)
 FROM PATIENT P1
 LEFT JOIN PATIENT p2
     ON P1.Patient_ID = P2.Patient_ID
 GROUP BY P1.Race
-ORDER BY P1.Race;
-'''
-      )
+ORDER BY P1.Race
+;'''))
+
+q1 = (con.execute(''' SELECT * FROM Race;'''))
+
+
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
-r1.head(5)
+r1 = pd.read_sql(''' SELECT * FROM Race;''', con)
+r1.head(1)
 print(r1)
 
 # Import libraries
@@ -1085,20 +1138,26 @@ All therapy at MSKCC, also known as all therapy at Memorial Sloan Kettering Canc
 ```
 import sqlite3
 import pandas as pd
+
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS All_therapy_at_MSKCC;''')
 q1 = (
-'''SELECT  C.All_therapy_at_MSKCC,COUNT(C.All_therapy_at_MSKCC)
+con.execute('''CREATE VIEW All_therapy_at_MSKCC AS
+SELECT  C.All_therapy_at_MSKCC,COUNT(C.All_therapy_at_MSKCC)
 FROM CANCER_TYPE C
 LEFT JOIN PATIENT P
     ON C.Patient_ID = P.Patient_ID
 GROUP BY C.All_therapy_at_MSKCC
-ORDER BY C.All_therapy_at_MSKCC;
-'''
-      )
+ORDER BY C.All_therapy_at_MSKCC;'''))
+
+
+q1 = (con.execute(''' SELECT * FROM All_therapy_at_MSKCC;'''))
+
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
-r1.head(5)
+r1 = pd.read_sql(''' SELECT * FROM All_therapy_at_MSKCC;''', con)
+r1.head(1)
 print(r1)
 
 # Import libraries
@@ -1126,20 +1185,26 @@ Platinum treatment is a type of chemotherapy that is used to treat cancer. Plati
 ```
 import sqlite3
 import pandas as pd
+
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Platinum_Treatment;''')
 q1 = (
-'''SELECT  A.Platinum_Treatment,COUNT(A.Platinum_Treatment)
+con.execute('''CREATE VIEW Platinum_Treatment AS
+SELECT  A.Platinum_Treatment,COUNT(A.Platinum_Treatment)
 FROM ANTIMETABOLITE A
 LEFT JOIN PATIENT P
     ON A.Patient_ID = P.Patient_ID
 GROUP BY A.Platinum_Treatment
-ORDER BY A.Platinum_Treatment;
-'''
-      )
+ORDER BY A.Platinum_Treatment;'''))
+
+
+q1 = (con.execute(''' SELECT * FROM Platinum_Treatment;'''))
+
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
-r1.head(5)
+r1 = pd.read_sql(''' SELECT * FROM Platinum_Treatment;''', con)
+r1.head(1)
 print(r1)
 
 # Import libraries
@@ -1167,20 +1232,26 @@ Radiotherapy, also known as radiation therapy, is a type of cancer treatment tha
 ```
 import sqlite3
 import pandas as pd
+
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Radiotherapy_Treatment;''')
 q1 = (
-'''SELECT  R.Radiotherapy_Treatment,COUNT(R.Radiotherapy_Treatment)
+con.execute('''CREATE VIEW Radiotherapy_Treatment AS
+SELECT  R.Radiotherapy_Treatment,COUNT(R.Radiotherapy_Treatment)
 FROM RADIOTHERAPY R
 LEFT JOIN PATIENT P
     ON R.Patient_ID = P.Patient_ID
 GROUP BY R.Radiotherapy_Treatment
-ORDER BY R.Radiotherapy_Treatment;
-'''
-      )
+ORDER BY R.Radiotherapy_Treatment;'''))
+
+
+q1 = (con.execute(''' SELECT * FROM Radiotherapy_Treatment;'''))
+
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
-r1.head(5)
+r1 = pd.read_sql(''' SELECT * FROM Radiotherapy_Treatment;''', con)
+r1.head(1)
 print(r1)
 
 # Import libraries
@@ -1208,20 +1279,26 @@ Chemotherapy is a type of cancer treatment that uses drugs to kill cancer cells.
 ```
 import sqlite3
 import pandas as pd
+
+
 con = sqlite3.connect('cancer.db')
+con.execute('''DROP VIEW IF EXISTS Chemotherapy_Treatment;''')
 q1 = (
-'''SELECT  C.Chemotherapy_Treatment,COUNT(C.Chemotherapy_Treatment)
+con.execute('''CREATE VIEW Chemotherapy_Treatment AS
+SELECT  C.Chemotherapy_Treatment,COUNT(C.Chemotherapy_Treatment)
 FROM CHEMOTHERAPY C
 LEFT JOIN PATIENT P
     ON C.Patient_ID = P.Patient_ID
 GROUP BY C.Chemotherapy_Treatment
-ORDER BY C.Chemotherapy_Treatment;
-'''
-      )
+ORDER BY C.Chemotherapy_Treatment;'''))
+
+
+q1 = (con.execute(''' SELECT * FROM Chemotherapy_Treatment;'''))
+
 
 # Convert the SQL query to Pandas data Frame
-r1 = pd.read_sql(q1, con)
-r1.head(5)
+r1 = pd.read_sql(''' SELECT * FROM Chemotherapy_Treatment;''', con)
+r1.head(1)
 print(r1)
 
 # Import libraries
@@ -1243,9 +1320,9 @@ plt.show()
 <img width="425" alt="MicrosoftTeams-image (35)" src="https://user-images.githubusercontent.com/37552813/205810241-e95e252f-326e-4814-9f8c-747b1e44bbcc.png">
 
 
-## **NORMALISATION**
+# **NORMALISATION**
 
-# Here are 1NF checks that can be used to determine a database 
+## Here are 1NF checks that can be used to determine a database 
 
 1. Each table should have a primary key that uniquely identifies each row in the table. This can be a single column, or a combination of multiple columns.
 
@@ -1258,7 +1335,7 @@ plt.show()
 Overall, the goal of 1NF is to ensure that data is organized in a structured and consistent manner, making it easier to query and manipulate.
 
 
-## 2NF 
+## **2NF** 
 
 Second Normal Form (2NF) is a database design principle that builds on the rules of First Normal Form (1NF). In order to be in 2NF, a database must meet the following criteria:
 
@@ -1271,7 +1348,7 @@ It must be in 1NF
 3. In general, the goal of 2NF is to ensure that the values in a table are fully dependent on the primary key, and not on any other non-prime attributes. This helps to ensure that data is stored in a logical and consistent manner, making it easier to query and manipulate. By following these guidelines, you can improve the performance and reliability of your database.
 
 
-## 3NF
+## **3NF**
 
 Third Normal Form (3NF) is a database design principle that builds on the rules of First Normal Form (1NF) and Second Normal Form (2NF). In order to be in 3NF, a database must meet the following criteria:
 
@@ -1284,19 +1361,13 @@ It must be in 2NF
 3. In general, the goal of 3NF is to ensure that the values in a table are fully dependent on the primary key, and not on any other non-prime attributes. This helps to ensure that data is stored in a logical and consistent manner, making it easier to query and manipulate. By following these guidelines, you can improve the performance and reliability of your database.
 
 
-## Views 
+## **Views** 
 
 1. A view in a database is a virtual table that is created by querying one or more existing tables. It provides a way to view and manipulate data from those tables in a specific way, without having to actually store the data in a separate table.
 
 2. Views are often used to simplify the structure of a database, or to provide a different perspective on the data. For example, a view could be used to show only a subset of the data in a table, or to combine data from multiple tables into a single view.
 
 3. Views are typically created using a SQL query, and can be accessed and queried just like a regular table. However, unlike regular tables, views do not store any data themselves – they are simply a way of presenting data from one or more tables in a specific way. This means that views can be created and modified quickly and easily, without having to make any changes to the underlying tables.
-
-
-
-
-
-
 
 
 
