@@ -1243,6 +1243,60 @@ plt.show()
 <img width="425" alt="MicrosoftTeams-image (35)" src="https://user-images.githubusercontent.com/37552813/205810241-e95e252f-326e-4814-9f8c-747b1e44bbcc.png">
 
 
+## **NORMALISATION**
+
+# Here are 1NF checks that can be used to determine a database 
+
+1. Each table should have a primary key that uniquely identifies each row in the table. This can be a single column, or a combination of multiple columns.
+
+2. Each column in a table should contain a single value, rather than multiple values. For example, if a column is supposed to store a person's name, it should not contain multiple names separated by a delimiter (such as a comma).
+
+3. There should not be any repeating groups in a table. For example, if a table contains information about a person, there should not be multiple rows for that person with different values for some columns. Instead, the data should be organized into separate columns.
+
+4. There should not be any redundant data in a table. For example, if a table contains a column for a person's name and another column for their address, the name should not be repeated in the address column.
+
+Overall, the goal of 1NF is to ensure that data is organized in a structured and consistent manner, making it easier to query and manipulate.
+
+
+## 2NF 
+
+Second Normal Form (2NF) is a database design principle that builds on the rules of First Normal Form (1NF). In order to be in 2NF, a database must meet the following criteria:
+
+It must be in 1NF
+
+1. It must not contain any partial dependencies. A partial dependency occurs when a non-prime attribute (an attribute that is not part of the primary key) depends on only a part of the primary key for its values. For example, if a table has a composite primary key (made up of multiple columns), and a non-prime attribute depends on only one of those columns for its values, then the table has a partial dependency and is not in 2NF.
+
+2. It must not contain any transitive dependencies. A transitive dependency occurs when a non-prime attribute depends on another non-prime attribute for its values. For example, if a table has two non-prime attributes (A and B), and the values of attribute A depend on the values of attribute B, then the table has a transitive dependency and is not in 2NF.
+
+3. In general, the goal of 2NF is to ensure that the values in a table are fully dependent on the primary key, and not on any other non-prime attributes. This helps to ensure that data is stored in a logical and consistent manner, making it easier to query and manipulate. By following these guidelines, you can improve the performance and reliability of your database.
+
+
+## 3NF
+
+Third Normal Form (3NF) is a database design principle that builds on the rules of First Normal Form (1NF) and Second Normal Form (2NF). In order to be in 3NF, a database must meet the following criteria:
+
+It must be in 2NF
+
+1. It must not contain any transitive dependencies. A transitive dependency occurs when a non-prime attribute depends on another non-prime attribute for its values. For example, if a table has two non-prime attributes (A and B), and the values of attribute A depend on the values of attribute B, then the table has a transitive dependency and is not in 3NF.
+
+2. It must not contain any non-prime attributes that are functionally dependent on another non-prime attribute. A non-prime attribute is functionally dependent on another non-prime attribute when the values of the first attribute are determined by the values of the second attribute. For example, if a table has two non-prime attributes (A and B), and the values of attribute A are determined by the values of attribute B, then the table is not in 3NF.
+
+3. In general, the goal of 3NF is to ensure that the values in a table are fully dependent on the primary key, and not on any other non-prime attributes. This helps to ensure that data is stored in a logical and consistent manner, making it easier to query and manipulate. By following these guidelines, you can improve the performance and reliability of your database.
+
+
+## Views 
+
+1. A view in a database is a virtual table that is created by querying one or more existing tables. It provides a way to view and manipulate data from those tables in a specific way, without having to actually store the data in a separate table.
+
+2. Views are often used to simplify the structure of a database, or to provide a different perspective on the data. For example, a view could be used to show only a subset of the data in a table, or to combine data from multiple tables into a single view.
+
+3. Views are typically created using a SQL query, and can be accessed and queried just like a regular table. However, unlike regular tables, views do not store any data themselves – they are simply a way of presenting data from one or more tables in a specific way. This means that views can be created and modified quickly and easily, without having to make any changes to the underlying tables.
+
+
+
+
+
+
 
 
 
