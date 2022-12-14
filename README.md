@@ -1317,7 +1317,7 @@ plt.pie(data, labels = labels)
 plt.show()
 ```
 
-<img width="425" alt="MicrosoftTeams-image (35)" src="https://user-images.githubusercontent.com/37552813/205810241-e95e252f-326e-4814-9f8c-7s47b1e44bbcc.png">
+<img width="425" alt="MicrosoftTeams-image (35)" src="https://user-images.githubusercontent.com/37552813/205810241-e95e252f-326e-4814-9f8c-747b1e44bbcc.png">
 
 
 # **NORMALISATION**
